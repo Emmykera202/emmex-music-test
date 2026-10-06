@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EMMEX MUSIC ACADEMY — Online Assessment</title>
+<style>
+*{box-sizing:border-box}:root{--gold:#e9b949;--gold2:#ffd978;--navy:#07111f;--navy2:#0d1c30;--card:#12243a;--text:#f7f8fb;--muted:#aebbd0;--red:#e95d5d;--green:#4bc27a}
+body{margin:0;font-family:Inter,Arial,sans-serif;background:radial-gradient(circle at top,#183451 0,#07111f 52%,#040a12 100%);color:var(--text);min-height:100vh}
+header{padding:22px 18px;border-bottom:1px solid #ffffff18;background:#06101ce8;backdrop-filter:blur(10px);position:sticky;top:0;z-index:5}
+.brand{max-width:1100px;margin:auto;display:flex;align-items:center;gap:14px}
+.logo{width:54px;height:54px;border:2px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold);font-weight:900;letter-spacing:-1px;box-shadow:0 0 24px #e9b94935}
+.brand h1{margin:0;font-size:20px;letter-spacing:1.4px}.brand p{margin:4px 0 0;color:var(--muted);font-size:12px}
+.wrap{max-width:1050px;margin:32px auto;padding:0 16px}.card{background:linear-gradient(145deg,#12243aee,#0d1b2ddd);border:1px solid #ffffff13;border-radius:22px;padding:28px;box-shadow:0 20px 55px #0007}
+.hero{text-align:center;padding:42px 25px}.hero .biglogo{margin:auto;width:92px;height:92px;border:3px solid var(--gold);border-radius:50%;display:grid;place-items:center;font-size:25px;font-weight:900;color:var(--gold);box-shadow:0 0 40px #e9b94930}
+h2{font-size:28px;margin:18px 0 10px}h3{margin-top:0}p{line-height:1.6;color:var(--muted)}.gold{color:var(--gold2)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:25px}
+.feature{padding:18px;border:1px solid #ffffff12;border-radius:15px;background:#ffffff05}.feature b{display:block;margin-bottom:6px}
+button{padding:13px 20px;border:0;border-radius:11px;background:linear-gradient(135deg,var(--gold2),var(--gold));font-weight:800;cursor:pointer;color:#111;font-size:15px}button.secondary{background:#24364e;color:#fff}button.danger{background:var(--red);color:#fff}
+input,textarea,select{width:100%;padding:13px;border-radius:10px;border:1px solid #ffffff18;background:#081525;color:#fff;margin-top:7px}label{display:block;color:var(--muted);margin:14px 0}
+.hidden{display:none!important}.top{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap;margin-bottom:20px}
+.timer{font-size:26px;font-weight:900;color:var(--gold2);padding:11px 16px;border-radius:12px;background:#071321;border:1px solid #e9b94944}
+.progress{height:8px;background:#071321;border-radius:20px;overflow:hidden;margin:10px 0 25px}.bar{height:100%;width:0;background:var(--gold);transition:.2s}
+.question{padding:22px;margin:16px 0;background:#0b192b;border:1px solid #ffffff10;border-radius:16px}
+.qnum{font-size:12px;color:var(--gold);font-weight:800;letter-spacing:1px}.option{display:block;padding:13px;margin:9px 0;background:#102238;border:1px solid #ffffff10;border-radius:10px;color:#fff;cursor:pointer}.option:hover{border-color:#e9b94977}.option input{width:auto;margin-right:9px}
+.notice{padding:14px 16px;border-radius:12px;background:#3a2d12;color:#ffe4a1;border:1px solid #e9b94933}.warning{background:#3b1717;color:#ffb4b4;border-color:#e95d5d55}
+.result{text-align:center}.score{font-size:60px;font-weight:900;color:var(--gold2)}
+.adminBox{margin-top:20px;padding-top:20px;border-top:1px solid #ffffff13}table{width:100%;border-collapse:collapse}th,td{padding:11px;border-bottom:1px solid #ffffff12;text-align:left;font-size:13px}.actions{display:flex;gap:9px;flex-wrap:wrap}
+footer{text-align:center;color:#71819a;padding:30px;font-size:12px}
+@media(max-width:600px){.card{padding:20px}h2{font-size:23px}.score{font-size:48px}}
+</style>
+</head>
+<body>
+<header><div class="brand"><div class="logo">EC</div><div><h1>EMMEX MUSIC ACADEMY</h1><p>FUNDAMENTALS IN MUSIC • ONLINE ASSESSMENT</p></div></div></header>
+<main class="wrap">
+
+<section id="home" class="card hero">
+<div class="biglogo">EC</div>
+<h2>Fundamentals in Music</h2>
+<p>Online assessment for <span class="gold"><b>Chapters 1–2</b></span></p>
+<div class="grid">
+<div class="feature"><b>30 Questions</b><span>Beginner-friendly questions</span></div>
+<div class="feature"><b>30 Minutes</b><span>Automatic countdown</span></div>
+<div class="feature"><b>Chapters 1–2</b><span>Based on your handbook</span></div>
+<div class="feature"><b>Online Submission</b><span>Ready for connection to your hosted system</span></div>
+</div>
+<br><button onclick="show('setup')">START ASSESSMENT</button>
+</section>
+
+<section id="setup" class="card hidden">
+<h2>Student Registration</h2><p>Enter your details before starting the assessment.</p>
+<label>Full Name<input id="name" placeholder="Enter your full name"></label>
+<label>Student ID / Matric Number<input id="sid" placeholder="Optional"></label>
+<div class="notice">The assessment is <b>30 minutes</b>. Leaving the test page is recorded as a violation. Three violations will submit the test automatically.</div><br>
+<div class="actions"><button onclick="startTest()">Begin Test</button><button class="secondary" onclick="show('home')">Back</button></div>
+</section>
+
+<section id="exam" class="card hidden">
+<div class="top"><div><b>EMMEX MUSIC ACADEMY</b><p id="studentLabel"></p></div><div class="timer" id="timer">30:00</div></div>
+<div class="progress"><div class="bar" id="bar"></div></div>
+<div id="notice" class="notice">Anti-cheating monitoring is active.</div>
+<div id="questions"></div>
+<div class="actions"><button onclick="submitTest(false)">SUBMIT TEST</button></div>
+</section>
+
+<section id="result" class="card result hidden">
+<h2>Assessment Submitted</h2><p>Your answers have been recorded.</p><div class="score" id="score"></div><p id="resultDetails"></p>
+<div class="actions" style="justify-content:center;margin-top:18px"><button id="whatsappBtn" onclick="sendWhatsApp()">SEND RESULT TO WHATSAPP</button><button class="secondary" onclick="location.reload()">DONE</button></div>
+</section>
+
+<section id="admin" class="card hidden">
+<h2>Teacher / Admin</h2>
+<p>This section is included for the next hosted/database stage.</p>
+<label>Admin password<input id="adminpw" type="password"></label>
+<button onclick="alert('The hosted version will connect this dashboard to the server database.')">OPEN ADMIN DASHBOARD</button>
+</section>
+
+</main>
+<footer>© EMMEX MUSIC ACADEMY • Fundamentals in Music</footer>
+
+<script>
+const QUESTIONS=[["What is music?", ["Organised sound and silence used to communicate and express ideas", "Only singing", "Only playing instruments", "Random noise"], 0, 1], ["Which of these is an element of music?", ["Pitch", "Weather", "Temperature", "Distance"], 0, 1], ["What does pitch tell us?", ["How high or low a sound is", "How fast a song is", "How loud a room is", "How long a concert is"], 0, 1], ["What does rhythm tell us?", ["When sounds happen and how long they last", "How high a note is", "What colour a sound has", "Who wrote a song"], 0, 1], ["What is melody?", ["A line of pitches that forms a musical idea", "The loudness of music", "The speed of music", "The silence in music"], 0, 1], ["What is harmony?", ["Combining pitches together", "Changing the tempo", "Making music louder", "Naming notes"], 0, 1], ["What does dynamics describe?", ["How loud or soft music is", "How high a note is", "How fast the pulse is", "The order of a song"], 0, 1], ["What is timbre?", ["The sound colour or character of a sound", "The speed of a song", "The number of beats", "The key of a song"], 0, 1], ["What is the musical alphabet?", ["A, B, C, D, E, F, G", "A, B, C, D, E, F, H", "Do, Re, Mi, Fa, Sol", "1, 2, 3, 4, 5, 6, 7"], 0, 1], ["What happens when a sharp is added to a note?", ["The pitch is raised by a semitone", "The pitch is lowered by a semitone", "The note becomes silent", "The tempo changes"], 0, 1], ["What does a flat do?", ["Lowers a pitch by a semitone", "Raises a pitch by a semitone", "Makes a note louder", "Changes the rhythm"], 0, 1], ["What does a natural sign do?", ["Cancels a previous sharp or flat", "Raises a note by a whole tone", "Makes a note louder", "Stops the music"], 0, 1], ["What is an octave?", ["The distance to the next note with the same letter name", "A type of rhythm", "A type of chord", "A musical rest"], 0, 1], ["How many semitones are in an octave on an equal-tempered piano?", ["8", "10", "12", "14"], 2, 1], ["Which are common choir voice parts?", ["Soprano, alto, tenor and bass", "Piano, guitar, drum and bass", "Do, re, mi and fa", "Verse, chorus, bridge and ending"], 0, 1], ["What is a singer's vocal range?", ["The full span from the lowest to highest useful note", "Only the most comfortable notes", "The speed of singing", "The loudest note"], 0, 1], ["What is tessitura?", ["The area where a voice works most comfortably", "The full range of a voice", "The speed of a song", "The loudness of a voice"], 0, 1], ["What is an interval?", ["The distance between two pitches", "The speed of the pulse", "The structure of a song", "A type of rest"], 0, 1], ["In 4/4 time, how many beats does a whole note have?", ["1", "2", "3", "4"], 3, 1], ["What does tempo mean?", ["The speed of the pulse", "How loud music is", "How high a note is", "The colour of a sound"], 0, 1], ["What is articulation?", ["How notes begin and connect", "How high a singer can sing", "How many chords are used", "The key of a song"], 0, 1], ["What is musical form?", ["The way a whole musical piece is organised", "The loudness of a song", "The speed of a song", "The pitch of one note"], 0, 1], ["According to Chapter 2, what should theory help you improve?", ["Hearing, singing, playing and communication", "Only handwriting", "Only memorisation", "Only reading lyrics"], 0, 2], ["What is a lead sheet?", ["A sheet that may contain melody, lyrics and chord symbols", "A sheet containing only lyrics", "A list of instruments", "A page of music history"], 0, 2], ["Before using a lead sheet, what should you identify?", ["Key, meter, tempo and form", "Only the title", "Only the lyrics", "Only the singer"], 0, 2], ["What do scales provide for music?", ["Pitch material for melodies, fills and improvisation", "Only lyrics", "Only rests", "Only dynamics"], 0, 2], ["What do intervals help a musician understand?", ["The distance between pitches and melodies", "Only volume", "Only lyrics", "Only the song title"], 0, 2], ["What does the tonic usually feel like in a progression?", ["Home", "Tension", "A warning", "A pause"], 0, 2], ["What is transposition?", ["Moving a complete musical idea to another key while keeping its relationships", "Changing the tempo", "Changing only the lyrics", "Removing the melody"], 0, 2], ["What is a good first step when rehearsing a difficult section?", ["Isolate the problem and practise it slowly", "Skip the section", "Play it as fast as possible", "Change the song"], 0, 2]];
+let qs=[],answers=[],time=1800,interval=null,violations=0,active=false,startedAt="",finalScore=0;
+const $=id=>document.getElementById(id);
+function show(id){["home","setup","exam","result","admin"].forEach(x=>$(x).classList.add("hidden"));$(id).classList.remove("hidden");window.scrollTo(0,0)}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]))}
+function startTest(){
+ const name=$("name").value.trim();if(!name)return alert("Please enter your full name.");
+ qs=QUESTIONS.map((x,i)=>({q:x[0],o:x[1],a:x[2],ch:x[3],i}));qs.sort(()=>Math.random()-.5);
+ answers=new Array(qs.length).fill(null);time=1800;violations=0;active=true;startedAt=new Date().toISOString();
+ $("studentLabel").textContent=name+($("sid").value.trim()?" • "+$("sid").value.trim():"");
+ $("questions").innerHTML=qs.map((x,i)=>`<div class="question"><div class="qnum">QUESTION ${i+1} • CHAPTER ${x.ch}</div><h3>${esc(x.q)}</h3>${x.o.map((o,j)=>`<label class="option"><input type="radio" name="q${i}" value="${j}" onchange="pick(${i},${j})"> ${esc(o)}</label>`).join("")}</div>`).join("");
+ show("exam");updateTimer();interval=setInterval(()=>{time--;updateTimer();if(time<=0)submitTest(true)},1000);
+}
+function pick(i,j){answers[i]=j;let n=answers.filter(x=>x!==null).length;$("bar").style.width=(n/qs.length*100)+"%"}
+function updateTimer(){let m=Math.floor(time/60),s=time%60;$("timer").textContent=String(m).padStart(2,"0")+":"+String(s).padStart(2,"0")}
+function violation(){if(!active)return;violations++;$("notice").className="notice warning";$("notice").innerHTML="<b>Warning "+violations+"</b> — leaving the assessment page has been recorded.";if(violations>=3)submitTest(true)}
+document.addEventListener("visibilitychange",()=>{if(document.hidden)violation()});
+window.addEventListener("blur",()=>{if(active)violation()});
+function submitTest(auto){if(!active)return;active=false;clearInterval(interval);let score=0;qs.forEach((x,i)=>{if(answers[i]===x.a)score++});finalScore=score;show("result");$("score").textContent=score+" / "+qs.length;$("resultDetails").textContent="Answered: "+answers.filter(x=>x!==null).length+" • Violations: "+violations+(auto?" • Submitted automatically":"");}
+
+function sendWhatsApp(){
+ const phone="2349073772498";
+ const name=$("name").value.trim();
+ const studentId=$("sid").value.trim() || "Not provided";
+ const answered=answers.filter(x=>x!==null).length;
+ const message =
+   "EMMEX MUSIC ACADEMY%0A%0A"+
+   "ONLINE TEST RESULT%0A"+
+   "Student: "+encodeURIComponent(name)+"%0A"+
+   "Student ID: "+encodeURIComponent(studentId)+"%0A"+
+   "Score: "+finalScore+" / "+qs.length+"%0A"+
+   "Answered: "+answered+" / "+qs.length+"%0A"+
+   "Violations: "+violations+"%0A"+
+   "Status: Test completed";
+ window.open("https://wa.me/"+phone+"?text="+message,"_blank");
+}
+</script>
+</body>
+</html>
